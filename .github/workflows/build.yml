@@ -10,6 +10,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Descomprimir
         run: unzip -q OverlayCroquis.zip
+      - name: Configurar AndroidX
+        run: |
+          echo "android.useAndroidX=true" >> OverlayCroquis/gradle.properties
+          echo "org.gradle.jvmargs=-Xmx2048m" >> OverlayCroquis/gradle.properties
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
